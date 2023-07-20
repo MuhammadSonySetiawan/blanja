@@ -127,8 +127,8 @@ npm run build
 
 # Related Project
 
-:rocket: [`Frontend Blanja`](https://github.com/abubakar-adeni/blanja)
+[`Frontend Blanja`](https://github.com/MuhammadSonySetiawan/blanja-fe)
 
-:rocket: [`Backend Blanja`](https://github.com/abubakar-adeni/blanja-app-be)
+[`Backend Blanja`](https://github.com/MuhammadSonySetiawan/blanja-app-be)
 
-:rocket: [`Demo Blanja`](https://blanja-fe-zeta.vercel.app/)
+[`Demo Blanja`](https://blanja-fe-zeta.vercel.app/)
