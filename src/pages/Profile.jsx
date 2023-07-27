@@ -13,12 +13,12 @@ import MenuLifeProfile from "../component/MenuLifeProfile"
 function Profile() {
   const navigate = useNavigate()
   const [profile, setProfile] = React.useState([])
-  const [profilepicture, setProfilepicture] = React.useState([])
+  const [profile_picture, setProfilepicture] = React.useState([])
   const [fullname, setFullname] = React.useState([])
   const [email, setEmail] = React.useState([])
-  const [phonenumber, setPhonenumber] = React.useState([])
+  const [phone_number, setPhonenumber] = React.useState([])
   const [gender, setGender] = React.useState([])
-  const [dateofbirth, setDateofbirth] = React.useState([])
+  const [date_of_birth, setDateofbirth] = React.useState([])
 
   React.useEffect(() => {
     if (!localStorage.getItem("auth")) {
@@ -31,9 +31,9 @@ function Profile() {
           setProfile(response?.data?.data[0])
           setFullname(profile.fullname)
           setEmail(profile.email)
-          setPhonenumber(profile.phonenumber)
+          setPhonenumber(profile.phone_number)
           setGender(profile.gender)
-          setDateofbirth(profile.dateofbirth?.split("T")[0])
+          setDateofbirth(profile.date_of_birth?.split("T")[0])
         })
     }
   }, [])
@@ -43,9 +43,9 @@ function Profile() {
       .patch(`${process.env.REACT_APP_API_URL}/users`, {
         fullname,
         email,
-        phonenumber,
+        phone_number,
         gender,
-        dateofbirth,
+        date_of_birth,
       })
       .then((response) => {
         Swal.fire({
@@ -67,7 +67,7 @@ function Profile() {
 
   const handleUpdateProfilePicture = () => {
     const formData = new FormData()
-    formData.append("photo", profilepicture)
+    formData.append("photo", profile_picture)
     axios
       .patch(`${process.env.REACT_APP_API_URL}/users/photo`, formData, {
         headers: {
@@ -102,7 +102,7 @@ function Profile() {
         {/* control Profile lift */}
         <MenuLifeProfile
           fullname={profile.fullname}
-          profilepicture={profile.profilepicture}
+          profile_picture={profile.profile_picture}
         />
 
         {/* Control Profile right */}
@@ -166,7 +166,7 @@ function Profile() {
                   </div>
                   <div class="row mb-3">
                     <label
-                      for="PhoneNumber"
+                      for="Phone_Number"
                       class="col-sm-2 col-form-label text-muted"
                     >
                       Phone Number
@@ -175,8 +175,8 @@ function Profile() {
                       <input
                         type="number"
                         class="form-control"
-                        id="PhoneNumber"
-                        defaultValue={profile.phonenumber}
+                        id="Phone_Number"
+                        defaultValue={profile.phone_number}
                         onChange={(e) => {
                           setPhonenumber(e.target.value)
                         }}
@@ -241,7 +241,7 @@ function Profile() {
                         id="date"
                         name="date"
                         className="text-muted rounded "
-                        defaultValue={profile?.dateofbirth?.split("T")[0]}
+                        defaultValue={profile?.date_of_birth?.split("T")[0]}
                         onChange={(e) => {
                           setDateofbirth(e.target.value)
                         }}
@@ -265,7 +265,7 @@ function Profile() {
               {/* content Right */}
               <div className="d-flex flex-column align-items-center">
                 <img
-                  src={profile.profilepicture}
+                  src={profile.profile_picture}
                   className="ImgProfileRight mb-3"
                   alt="Foto Profile"
                 />

@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom"
 import { Buffer } from "buffer"
 import { v4 as uuidv4 } from "uuid"
 
+import Swal from "sweetalert2"
+
+
 function CheckOut() {
   const navigate = useNavigate()
   const location = useLocation()
@@ -25,19 +28,33 @@ function CheckOut() {
       navigate("/login")
     } else {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/products/${id}`)
-        .then((response) => setProduct(response?.data?.data[0]))
-        .catch((err) => {
-          console.log("error :", err)
-        })
-
-      axios
         .get(
           `${process.env.REACT_APP_API_URL}/address/user/${localStorage.getItem(
             "user_id"
           )}`
         )
-        .then((response) => setAddress(response?.data?.data[0]))
+        .then((response) =>{ 
+          setAddress(response?.data?.data[0])
+       
+          }
+        )
+        .catch((err) => {
+          // axios.get('https://alert-pink-duckling.cyclic.app/address/user/${id}')
+          // .then((res) => console.log(res))
+          console.log("error :", err)
+          Swal.fire({
+          title: "Checkout Failed",
+          text: "Address is still empty",
+          icon: "error",
+        })
+
+        navigate('/ProfileSippingAddress')
+        }
+        )
+
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/products/${id}`)
+        .then((response) => setProduct(response?.data?.data[0]))
         .catch((err) => {
           console.log("error :", err)
         })
@@ -81,7 +98,7 @@ function CheckOut() {
           first_name: profile.fullname.split(" ")[0],
           last_name: profile.fullname.split(" ")[1],
           email: profile.email,
-          phone: profile.phonenumber,
+          phone: profile.phone_number,
         },
       })
       .then((response) => {
@@ -89,18 +106,25 @@ function CheckOut() {
       })
     axios
       .post(`${process.env.REACT_APP_API_URL}/orders/`, {
-        product_id: product.id,
-        user_id: localStorage.getItem("user_id"),
-        quantity,
-        paymentmethod: `INNOVIXTECH-${order_id}`,
-        address_id: address.id,
-        total,
-        paymentstatus: "Not yet paid",
-        orderstatus: "",
+         product_id: product.id,
+          user_id: localStorage.getItem("user_id"),
+          quantity,
+          payment_id: `INNOVIXTECH-${order_id}`,
+          address_id: address.id,
+          total,
+          order_status: "",
       })
       .then((response) => console.log(response))
       .catch((err) => {
         console.log("error :", err)
+
+        // Swal.fire({
+        //   title: "Checkout Failed",
+        //   text: "Address is still empty",
+        //   icon: "error",
+        // })
+
+        // navigate('/ProfileSippingAddress')
       })
   }
 
@@ -124,7 +148,7 @@ function CheckOut() {
               >
                 <div className="card-body">
                   <h5 className="card-title text-start">
-                    {address.recipientsname}
+                    {address.recipients_name}
                   </h5>
                   <p className="card-text text-start">{address.address}</p>
 

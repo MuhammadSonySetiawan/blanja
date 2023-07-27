@@ -25,7 +25,7 @@ function ItemCheckOut(props) {
           <div className="d-flex flex-row">
             <div>
               <img
-                src={`${product.productpictures}`}
+                src={`${product.product_pictures}`}
                 className="contentCheckOut me-2 img-fluid"
               />
             </div>

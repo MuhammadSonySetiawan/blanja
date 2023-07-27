@@ -19,6 +19,7 @@ function Login() {
       .then((response) => {
         const token = response?.data?.token
         const user_id = response?.data?.data?.id
+
         Swal.fire({
           title: "Login Success",
           text: "Login Success, redirect to app...",

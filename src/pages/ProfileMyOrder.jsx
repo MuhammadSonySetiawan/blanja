@@ -16,15 +16,20 @@ function ProfileMyOrder() {
       navigate("/login")
     } else {
       const user_id = localStorage.getItem("user_id")
+      console.log(user_id)
+      
       axios
         .get(`${process.env.REACT_APP_API_URL}/users/${user_id}`)
         .then((response) => {
+          console.log(response)
           setProfile(response?.data?.data[0])
         })
       axios
         .get(`${process.env.REACT_APP_API_URL}/orders/user/${user_id}`)
         .then((response) => {
+          console.log(response)
           setOrder(response?.data?.data)
+          // update status payment
         })
     }
   }, [])
@@ -125,10 +130,11 @@ function ProfileMyOrder() {
                 {order.map((item) => {
                   return (
                     <tr>
-                      <td>{item.createdat.split("T")[0]}</td>
-                      <td>{item.paymentstatus}</td>
-                      <td>{item.orderstatus}</td>
+                      <td>{item.created_at.split("T")[0]}</td>
+                      <td>{item.payment_status}</td>
+                      <td>{item.order_status}</td>
                       <td>Rp {handleRupiah(item.total)}</td>
+
                       {/* <td>
                         <button
                           className="btn btn-success"
@@ -140,6 +146,7 @@ function ProfileMyOrder() {
                           Check Status
                         </button>
                       </td> */}
+
                     </tr>
                   )
                 })}

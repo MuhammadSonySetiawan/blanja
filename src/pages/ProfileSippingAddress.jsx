@@ -135,7 +135,7 @@ function ProfileSippingAddress() {
             <p className="text-muted">Manage your shipping address</p>
             <hr />
 
-            {address.length == 0 ? (
+            {address?.length == 0 ? (
               <div className={"alert alert-warning"} role="alert">
                 Please add your address!
               </div>
@@ -299,7 +299,7 @@ function ProfileSippingAddress() {
 
               {/* content bottom */}
               <div className="d-flex flex-column mt-4 pb-3">
-                {address.length > 0
+                {address?.length > 0
                   ? address.map((item) => {
                       return (
                         <span class="border border-danger my-3 p-4 rounded-2">

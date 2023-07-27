@@ -26,8 +26,8 @@ function ContentCategory(props) {
   return (
     <>
       <Link
-        className="card mb-3 me-3 ItemCategory text-decoration-none"
-        style={{ width: "15rem", cursor: "pointer" }}
+        className="card mb-3 me-3 ItemCategory text-decoration-none "
+        style={{ overflowY: "scroll", boxSizing: "border-box", minHeight: "400px", maxHeight: "400px", width: "15rem", cursor: "pointer" }}
         to={`/product/${id}`}
       >
         <img

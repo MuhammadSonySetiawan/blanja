@@ -23,7 +23,7 @@
 
 # About The Project
 
-Peworld is a hiring website to make it easier to connect workers with recruiters. Workers can create an account and display portfolios, work experiences, and skills on this website. Recruiters can create an account for searching and hiring workers based on company needs. Workers will be notified if they are hired by recruiter.
+Blanja is an e-commerce platform in the fashion style field where users can log in and enjoy a delightful shopping experience with a highly user-friendly experience.
 
 ## Built With
 
