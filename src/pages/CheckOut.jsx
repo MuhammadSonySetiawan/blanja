@@ -144,7 +144,7 @@ function CheckOut() {
             <div className="">
               <div
                 className="card w-40 mb-3 me-4 ItemCheckOut"
-                style={{ width: "90%" }}
+                style={{ width: "150%" }}
               >
                 <div className="card-body">
                   <h5 className="card-title text-start">
@@ -157,16 +157,17 @@ function CheckOut() {
                   </a> */}
 
                   {/* content top */}
-
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary float-start"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    data-bs-whatever="@mdo"
-                  >
-                    Choose another address
-                  </button>
+                  {/* <div className="d-grid gap-2"> */}
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary float-start "
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      data-bs-whatever="@mdo"
+                    >
+                      Choose another address
+                    </button>
+                  {/* </div> */}
 
                   {/* start modal Add Address */}
                   <div
@@ -489,7 +490,7 @@ function CheckOut() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default CheckOut

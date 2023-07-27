@@ -19,10 +19,10 @@ function ItemCheckOut(props) {
     <>
       <div
         className="card mb-2 ItemCheckOut"
-        style={{ cursor: "pointer", width: "100%" }}
+        style={{ cursor: "pointer", width: "150%" }}
       >
-        <div className="card-body d-flex flex-row justify-content-between align-items-center">
-          <div className="d-flex flex-row">
+        <div className="card-body d-flex flex-row justify-content-between align-items-center overPage">
+          <div className="d-flex flex-row overPage">
             <div>
               <img
                 src={`${product.product_pictures}`}
@@ -46,8 +46,8 @@ function ItemCheckOut(props) {
             </div>
           </div>
 
-          <div className="mx-2">{quantity}x</div>
-          <div>
+          <div className="d-flex">
+            <div className="p-0 me-3">{quantity}x</div>
             <div className="end-2" style={{ width: "100px" }}>
               Rp {handleRupiah(product.price)}
             </div>
@@ -55,7 +55,7 @@ function ItemCheckOut(props) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default ItemCheckOut
