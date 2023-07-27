@@ -45,14 +45,14 @@ function MenuLifeProfile(props) {
             >
               {" "}
               <HiPencil />
-              <Link to="/Profile">Edit Profile</Link>
+              <Link to="/profile">Edit Profile</Link>
             </p>
           </div>
         </div>
 
         <div className="ms-5 mt-5 d-flex flex-column">
           <Link
-            to="/Profile"
+            to="/profile"
             className="mt-3 text-dark"
             style={{ cursor: "pointer", textDecoration: "none" }}
           >
@@ -65,7 +65,7 @@ function MenuLifeProfile(props) {
             My Account
           </Link>
           <Link
-            to="/ProfileSippingAddress"
+            to="/profilesippingaddress"
             className="mt-2 text-dark"
             style={{ cursor: "pointer", textDecoration: "none" }}
           >
@@ -83,7 +83,7 @@ function MenuLifeProfile(props) {
             Shipping Adrress
           </Link>
           <Link
-            to="/ProfileMyOrder"
+            to="/profilemyorder"
             className="mt-2 text-dark"
             style={{ cursor: "pointer", textDecoration: "none" }}
           >

@@ -14,7 +14,7 @@ function App() {
   React.useEffect(() => {
     axios
       .get(
-        `https://alert-pink-duckling.cyclic.app/products/category/${category}?sortType=DESC&page=1`
+        `${process.env.REACT_APP_API_URL}/products/category/${category}?sortType=DESC&page=1`
       )
       .then((response) => setContentList(response?.data?.data))
       .catch((err) => {
@@ -45,8 +45,8 @@ function App() {
                 <ContentCategory
                   title={item?.title}
                   price={item?.price}
-                  storename={item?.storename}
-                  productpictures={item.productpictures}
+                  storename={item?.store_name}
+                  productpictures={item.product_pictures}
                   id={item?.id}
                 />
               ))

@@ -108,7 +108,7 @@ function Product() {
         icon: "error",
       })
     } else {
-      navigate(`/CheckOut/${product.id}/${quantity}`)
+      navigate(`/checkout/${product.id}/${quantity}`)
     }
   }
 

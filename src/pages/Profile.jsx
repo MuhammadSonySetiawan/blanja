@@ -102,7 +102,7 @@ function Profile() {
         {/* control Profile lift */}
         <MenuLifeProfile
           fullname={profile.fullname}
-          profile_picture={profile.profile_picture}
+          profilepicture={profile.profile_picture}
         />
 
         {/* Control Profile right */}

@@ -44,3 +44,7 @@ div{
     width: 100%!important ;
   }
 }
+
+.ItemCategory::-webkit-scrollbar {
+  width: 0; 
+}

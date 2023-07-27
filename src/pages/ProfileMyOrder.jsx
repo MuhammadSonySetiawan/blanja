@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "../style/ProfileMyOrder.css"
 
@@ -10,26 +10,37 @@ function ProfileMyOrder() {
   const navigate = useNavigate()
   const [profile, setProfile] = React.useState([])
   const [order, setOrder] = React.useState([])
+  const [orderProduct, setOrderProduct] = React.useState([])
 
   React.useEffect(() => {
     if (!localStorage.getItem("auth")) {
       navigate("/login")
     } else {
       const user_id = localStorage.getItem("user_id")
-      console.log(user_id)
-      
       axios
         .get(`${process.env.REACT_APP_API_URL}/users/${user_id}`)
         .then((response) => {
-          console.log(response)
           setProfile(response?.data?.data[0])
         })
       axios
         .get(`${process.env.REACT_APP_API_URL}/orders/user/${user_id}`)
         .then((response) => {
-          console.log(response)
           setOrder(response?.data?.data)
-          // update status payment
+        })
+        .then(() => {
+          order.map((item, index) => {
+            axios
+              .get(
+                `${process.env.REACT_APP_API_URL}/products/${item?.product_id}`
+              )
+              .then((response) => {
+                // product.push(response?.data?.data[0]?.product_pictures)
+                setOrderProduct((orderProduct) => [
+                  ...orderProduct,
+                  response?.data?.data[0]?.product_pictures,
+                ])
+              })
+          })
         })
     }
   }, [])
@@ -46,18 +57,6 @@ function ProfileMyOrder() {
     }
   }
 
-  const handleUpdateStatus = (orderid, id) => {
-    console.log(orderid)
-    axios
-      .get(`https://api.sandbox.midtrans.com/v2/${orderid}/status`)
-      .then((response) => {
-        console.log(response)
-      })
-      .catch((err) => {
-        console.log("error :", err)
-      })
-  }
-
   return (
     <div className="" style={{ backgroundColor: "#eeeeee" }}>
       {/* Navbar */}
@@ -66,8 +65,8 @@ function ProfileMyOrder() {
       <div className="container-fluide d-flex ProfileBg">
         {/* control Profile lift */}
         <MenuLifeProfile
-          fullname={profile.fullname}
-          profilepicture={profile.profilepicture}
+          fullname={profile?.fullname}
+          profilepicture={profile?.profile_picture}
         />
 
         {/* Control Profile right */}
@@ -90,66 +89,40 @@ function ProfileMyOrder() {
                   All item
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-muted" href="#">
-                  Not yet paid
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-muted" href="#">
-                  Packed
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-muted" href="#">
-                  Sent
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-muted" href="#">
-                  Completed
-                </a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link text-muted" href="#">
-                  Order cancel
-                </a>
-              </li>
             </ul>
-            <table className="table">
+            <table className="table align-items-center">
               <thead>
                 <tr>
                   <th scope="col">Created At</th>
-                  <th scope="col">Payment Status</th>
                   <th scope="col">Order Status</th>
+                  <th scope="col">Quantity</th>
                   <th scope="col">Total</th>
-                  {/* <th scope="col">Action</th> */}
+                  <th scope="col">Photo Product</th>
                 </tr>
               </thead>
               <tbody>
-                {order.map((item) => {
-                  return (
-                    <tr>
-                      <td>{item.created_at.split("T")[0]}</td>
-                      <td>{item.payment_status}</td>
-                      <td>{item.order_status}</td>
-                      <td>Rp {handleRupiah(item.total)}</td>
-
-                      {/* <td>
-                        <button
-                          className="btn btn-success"
-                          onClick={handleUpdateStatus(
-                            item.paymentmethod,
-                            item.id
-                          )}
-                        >
-                          Check Status
-                        </button>
-                      </td> */}
-
-                    </tr>
-                  )
-                })}
+                {order.length !== 0 ? (
+                  order.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{item?.created_at.split("T")[0]}</td>
+                        <td>{item?.order_status}</td>
+                        <td>{item?.quantity}</td>
+                        <td>Rp {handleRupiah(item?.total)}</td>
+                        {/* <td>{getProductPictures(item?.product_id)}</td> */}
+                        <td>
+                          <img
+                            src={orderProduct[index]}
+                            alt="product-pict"
+                            style={{ width: "100px" }}
+                          />
+                        </td>
+                      </tr>
+                    )
+                  })
+                ) : (
+                  <p className="text-center">You don't have order yet</p>
+                )}
               </tbody>
             </table>
             <hr />
