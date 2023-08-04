@@ -5,7 +5,7 @@
   </div>
   <h3 align="center">Blanja (Blanja App)</h3>
   <p align="center">
-    <a href="https://github.com/abubakar-adeni/blanja"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/MuhammadSonySetiawan/blanja-fe"><strong>Explore the docs »</strong></a>
     <br />
     <a href="https://blanja-fe-zeta.vercel.app/">View Demo</a>
   </p>
@@ -23,7 +23,7 @@
 
 # About The Project
 
-Peworld is a hiring website to make it easier to connect workers with recruiters. Workers can create an account and display portfolios, work experiences, and skills on this website. Recruiters can create an account for searching and hiring workers based on company needs. Workers will be notified if they are hired by recruiter.
+Blanja is an e-commerce platform in the fashion style field where users can log in and enjoy a delightful shopping experience with a highly user-friendly experience.
 
 ## Built With
 
@@ -45,7 +45,7 @@ You'll need these programs installed before proceeding to installation
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/en/download)
 
-This project requires [blanja-app-be](https://github.com/alkarim99/blanja-app-be) to function properly, follow the steps provided in the readme to install and run the backend API
+This project requires [blanja-app-be](https://github.com/MuhammadSonySetiawan/blanja-app-be) to function properly, follow the steps provided in the readme to install and run the backend API
 
 ## Installation
 
