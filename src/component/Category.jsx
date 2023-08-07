@@ -1,6 +1,6 @@
-import React from "react";
-import categoryCSS from "../assets/css/category.module.css";
-import { Link } from "react-router-dom";
+import React from "react"
+import categoryCSS from "../assets/css/category.module.css"
+import { Link } from "react-router-dom"
 
 function Category({ categoryData }) {
   return (
@@ -9,7 +9,7 @@ function Category({ categoryData }) {
         {categoryData.map((data, index) => {
           return (
             <div key={index.toString()} className="col-lg-4 col-xxl-2 col-6">
-              <Link to={`/Kategori/${data.categoryName}`}>
+              <Link to={`/kategori/${data.categoryName}`}>
                 <div
                   className={`${categoryCSS.categoryItem} d-flex justify-content-center align-items-center rounded-3`}
                   style={{ backgroundColor: `${data.categoryColor}` }}

@@ -108,7 +108,7 @@ function Product() {
         icon: "error",
       })
     } else {
-      navigate(`/CheckOut/${product.id}/${quantity}`)
+      navigate(`/checkout/${product.id}/${quantity}`)
     }
   }
 
@@ -140,7 +140,7 @@ function Product() {
         <div className="row mb-5">
           <div className="col-lg-4">
             <img
-              src={`${product.productpictures}`}
+              src={`${product.product_pictures}`}
               crossOrigin="anonymous"
               className="w-100 mb-2"
               alt=" product1"
@@ -199,7 +199,7 @@ function Product() {
           <div className="col-lg-8 d-flex flex-column justify-content-between">
             <div className="mb-lg-0 mb-3 mt-lg-0 mt-4">
               <h1 className="text-dark metropolis-b fs-2">{product.title}</h1>
-              <span className="text-secondary fs-5">{product.storename}</span>
+              <span className="text-secondary fs-5">{product.store_name}</span>
               {/* <div className="d-flex justify-content-start align-items-center text-center gap-1">
                 <img src={iconStar} alt="star" width="20px" />
                 <img src={iconStar} alt="star" width="20px" />

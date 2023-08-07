@@ -15,6 +15,28 @@ import ProfileSippingAddress from "./pages/ProfileSippingAddress"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import axios from "axios"
+import * as Sentry from "@sentry/react"
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app"
+import { getAnalytics } from "firebase/analytics"
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA0ftRyBkLWQfiEuTDc0jBLIjqTNtD3lYo",
+  authDomain: "blanja-app-1c590.firebaseapp.com",
+  projectId: "blanja-app-1c590",
+  storageBucket: "blanja-app-1c590.appspot.com",
+  messagingSenderId: "174765491398",
+  appId: "1:174765491398:web:32fe4cba272daf893443c7",
+  measurementId: "G-6NW92C0LWM",
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+const analytics = getAnalytics(app)
+
+Sentry.init({
+  dsn: "https://62069813ebac4d3083fe1bdd26276622@o4505384079065088.ingest.sentry.io/4505592559435776",
+})
 
 const router = createBrowserRouter([
   {
@@ -38,27 +60,27 @@ const router = createBrowserRouter([
     element: <Product />,
   },
   {
-    path: "/CheckOut/:id/:quantity",
+    path: "/checkout/:id/:quantity",
     element: <CheckOut />,
   },
   {
-    path: "/Kategori/:category",
+    path: "/kategori/:category",
     element: <Kategori />,
   },
   {
-    path: "/MyOrder",
+    path: "/myorder",
     element: <MyOrder />,
   },
   {
-    path: "/ProfileMyOrder",
+    path: "/profilemyorder",
     element: <ProfileMyOrder />,
   },
   {
-    path: "/ProfileMyOrder",
-    element: <ProfileMyOrder />,
+    path: "/profilemyorder",
+    element: <profilemyorder />,
   },
   {
-    path: "/ProfileSippingAddress",
+    path: "/profilesippingaddress",
     element: <ProfileSippingAddress />,
   },
 ])

@@ -98,15 +98,15 @@ npm run build
     <td> <img width="350px" src="./documentation/register.png" border="0"  alt="Register" /></td>
   </tr>
   <tr>
-    <td>Login</td>
-    <td>Register</td>
+    <td>Login Page</td>
+    <td>Register Page</td>
   </tr>
   <tr>
-    <td><img width="350px" src="./documentation/profile.png" border="0" alt="Profile" /> </td>
+ <td><img width="350px" src="./documentation/profile.png" border="0" alt="Profile" /> </td>
     <td><img width="350px" src="./documentation/product.png" border="0" alt="Hire" /> </td>
   </tr>
    <tr>
-    <td>Edit Profile</td>
+   <td>Edit Profile Page</td>
     <td>Product Pages</td>
   </tr>
   <tr>
@@ -114,15 +114,15 @@ npm run build
     <td><img width="350px" src="./documentation/detail.png" border="0" alt="Detail Talent" /> </td>
   </tr>
    <tr>
-    <td>Search</td>
-    <td>Detail Product</td>
+    <td>Search Page</td>
+    <td>Detail Product Page</td>
       <tr>
     <td><img width="350px" src="./documentation/checkout.png" border="0" alt="Search" /></td>
     <td><img width="350px" src="./documentation/payment.png" border="0" alt="Detail Talent" /> </td>
   </tr>
    <tr>
-    <td>Checkout</td>
-    <td>Payment</td>
+    <td>Checkout Page</td>
+    <td>Payment Page</td>
 </table>
 
 # Related Project
