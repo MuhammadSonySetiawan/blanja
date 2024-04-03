@@ -7,7 +7,7 @@
   <p align="center">
     <a href="https://github.com/MuhammadSonySetiawan/blanja-fe"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://blanja-fe-zeta.vercel.app/">View Demo</a>
+    <a href="https://blanja-web-nine.vercel.app/">View Demo</a>
   </p>
 </p>
 
@@ -54,7 +54,7 @@ Follow this steps to run the server locally
 1. Clone this repository
 
 ```sh
-git clone https://github.com/abubakar-adeni/blanja.git
+git clone https://github.com/MuhammadSonySetiawan/blanja.git
 ```
 
 2. Change directory to blanja
@@ -131,4 +131,4 @@ npm run build
 
 - [`Backend Blanja`](https://github.com/MuhammadSonySetiawan/blanja-app-be)
 
-- [`Demo Blanja`](https://blanja-fe-zeta.vercel.app/)
+- [`Demo Blanja`](https://blanja-web-nine.vercel.app/)
